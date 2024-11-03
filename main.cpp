@@ -130,33 +130,46 @@ int main() {
     string fn = "codes.txt";
     // read data 
     vector<string> data = readdata(fn); 
+    int sim = 15;
+
+    // 2D vector of vectors
+    vector<vector<vector<int>>> result(sim, vector<vector<int>>(4, vector<int>(3, 0)));
+
+    
     vector<string> v;
     list<string> l;
     set<string> s;
     // Output
-    cout << " Operation  Vector  List    Set " << endl ;
+    
 
     int readVectorTime = mReadV(v, data);
     int readListTime = mReadL(l, data);
     int readSetTime = mReadS(s, data);
-    cout << " Read       " << readVectorTime << "       " << readListTime << "       " << readSetTime << endl;
+    
     
     int sortVectorTime = mSortV(v);
     int sortListTime = mSortL(l);
     int sortSetTime = mSortS(s);
-    cout << " Sort       " << sortVectorTime << "       " << sortListTime << "       " << sortSetTime << endl;
+    
     
     string test = "HelloWorld";
     int insertVectorTime = mInsertV(v,test);
     int insertListTime = mInsertL(l,test);
     int insertSetTime = mInsertS(s,test);
-    cout << " Insert     " << insertVectorTime << "       " << insertListTime << "       " << insertSetTime << endl;
+    
     
     int deleteVectorTime = mDeleteV(v);
     int deleteListTime = mDeleteL(l);
     int deleteSetTime = mDeleteS(s, test);
-    cout << " Delete     " << deleteVectorTime << "       " << deleteListTime << "       " << deleteSetTime << endl;
+    
 
+
+
+    cout << " Operation  Vector  List    Set " << endl ;
+    cout << " Read       " << readVectorTime << "       " << readListTime << "       " << readSetTime << endl;
+    cout << " Sort       " << sortVectorTime << "       " << sortListTime << "       " << sortSetTime << endl;
+    cout << " Insert     " << insertVectorTime << "       " << insertListTime << "       " << insertSetTime << endl;
+    cout << " Delete     " << deleteVectorTime << "       " << deleteListTime << "       " << deleteSetTime << endl;
     return 0;
 }
 
