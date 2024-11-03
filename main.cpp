@@ -135,33 +135,36 @@ int main() {
     // 2D vector of vectors
     vector<vector<vector<int>>> result(sim, vector<vector<int>>(4, vector<int>(3, 0)));
 
+    for (int i = 0; i < sim; i++) {
+        vector<string> v;
+        list<string> l;
+        set<string> s;
+        // 
     
-    vector<string> v;
-    list<string> l;
-    set<string> s;
-    // Output
+        result[sim][0][0] = mReadV(v, data);
+        result[sim][0][1] = mReadL(l, data);
+        result[sim][0][2] = mReadS(s, data);
+        
+        result[sim][1][0] = mSortV(v);
+        result[sim][1][1] = mSortL(l);
+        result[sim][1][2] = mSortS(s);
+        
+        string test = "HelloWorld";
+        result[sim][2][0] = mInsertV(v,test);
+        result[sim][2][1] = mInsertL(l,test);
+        result[sim][2][2] = mInsertS(s,test);
+        
+        result[sim][3][0] = mDeleteV(v);
+        result[sim][3][1] = mDeleteL(l);
+        result[sim][3][2] = mDeleteS(s, test);
+    }
+
+    vector<vector<int>> aresult(4, vector<int>(3, 0));
+
     
 
-    int readVectorTime = mReadV(v, data);
-    int readListTime = mReadL(l, data);
-    int readSetTime = mReadS(s, data);
-    
-    
-    int sortVectorTime = mSortV(v);
-    int sortListTime = mSortL(l);
-    int sortSetTime = mSortS(s);
-    
-    
-    string test = "HelloWorld";
-    int insertVectorTime = mInsertV(v,test);
-    int insertListTime = mInsertL(l,test);
-    int insertSetTime = mInsertS(s,test);
-    
-    
-    int deleteVectorTime = mDeleteV(v);
-    int deleteListTime = mDeleteL(l);
-    int deleteSetTime = mDeleteS(s, test);
-    
+
+
 
 
 
