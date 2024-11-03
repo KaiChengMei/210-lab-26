@@ -141,38 +141,40 @@ int main() {
         set<string> s;
         // 
     
-        result[sim][0][0] = mReadV(v, data);
-        result[sim][0][1] = mReadL(l, data);
-        result[sim][0][2] = mReadS(s, data);
+        result[i][0][0] = mReadV(v, data);
+        result[i][0][1] = mReadL(l, data);
+        result[i][0][2] = mReadS(s, data);
         
-        result[sim][1][0] = mSortV(v);
-        result[sim][1][1] = mSortL(l);
-        result[sim][1][2] = mSortS(s);
+        result[i][1][0] = mSortV(v);
+        result[i][1][1] = mSortL(l);
+        result[i][1][2] = mSortS(s);
         
         string test = "HelloWorld";
-        result[sim][2][0] = mInsertV(v,test);
-        result[sim][2][1] = mInsertL(l,test);
-        result[sim][2][2] = mInsertS(s,test);
+        result[i][2][0] = mInsertV(v,test);
+        result[i][2][1] = mInsertL(l,test);
+        result[i][2][2] = mInsertS(s,test);
         
-        result[sim][3][0] = mDeleteV(v);
-        result[sim][3][1] = mDeleteL(l);
-        result[sim][3][2] = mDeleteS(s, test);
+        result[i][3][0] = mDeleteV(v);
+        result[i][3][1] = mDeleteL(l);
+        result[i][3][2] = mDeleteS(s, test);
     }
 
     vector<vector<int>> aresult(4, vector<int>(3, 0));
-
+    for (int a = 0; a < sim; a++) {
+        for (int b = 0; b < 4; b++) {
+            for (int c = 0; c < 3; c++) {
+                aresult[b][c] += result[a][b][c];
+            }
+        }
+    }
     
-
-
-
-
-
-
+    // Output
+    cout << " Number of simulations: " << sim << endl ; 
     cout << " Operation  Vector  List    Set " << endl ;
-    cout << " Read       " << readVectorTime << "       " << readListTime << "       " << readSetTime << endl;
-    cout << " Sort       " << sortVectorTime << "       " << sortListTime << "       " << sortSetTime << endl;
-    cout << " Insert     " << insertVectorTime << "       " << insertListTime << "       " << insertSetTime << endl;
-    cout << " Delete     " << deleteVectorTime << "       " << deleteListTime << "       " << deleteSetTime << endl;
+    cout << " Read       " << aresult[0][0]/15 << "       " << aresult[0][1]/15 << "       " << aresult[0][2]/15 << endl;
+    cout << " Sort       " << aresult[1][0]/15 << "       " << aresult[1][1]/15 << "       " << aresult[1][2]/15 << endl;
+    cout << " Insert     " << aresult[2][0]/15 << "       " << aresult[2][1]/15 << "       " << aresult[2][2]/15 << endl;
+    cout << " Delete     " << aresult[3][0]/15 << "       " << aresult[3][1]/15 << "       " << aresult[3][2]/15 << endl;
     return 0;
 }
 
